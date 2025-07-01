@@ -2,11 +2,11 @@
 
 /* === Global === */
 body, html {
-  background: url('https://vnil.me/rsejP0JYUYoz.jpg') no-repeat center center fixed;
-  background-size: cover;
-  backdrop-filter: blur(5px) brightness(0.3);
-  font-family: 'Comfortaa', sans-serif !important;
-  color: #e5e5ff !important;
+    background: url('https://vnil.me/rsejP0JYUYoz.jpg') no-repeat center center fixed;
+    background-size: cover;
+    backdrop-filter: blur(5px) brightness(0.3);
+    font-family: 'Comfortaa', sans-serif !important;
+    color: #e5e5ff !important;
 }
 
 /* === Top Header Bar (Proxmox Logo, Search) === */
@@ -26,41 +26,41 @@ body, html {
 a[href="https://www.proxmox.com"] img,
 img[src="/pve2/images/proxmox_logo.png"]
 {
-  display: none !important;
-  visibility: hidden !important;
+    display: none !important;
+    visibility: hidden !important;
 }
 a.x-plain[href="https://www.proxmox.com"]
 {
-  display: inline-block !important;
-  vertical-align: middle !important;
-  background-image: url('https://vnil.me/8SU3Htz1MaDo.png') !important; /* <-- UPDATED LOGO URL */
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: left center !important;
-  width: 220px !important;    /* ADJUST THIS WIDTH AS NEEDED */
-  height: 38px !important;   /* Adjust height if needed */
-  line-height: 38px !important;
-  left: auto !important;
-  top: auto !important;
-  margin: 0 10px 0 5px !important;
-  opacity: 1 !important;
-  border: none !important;
-  text-indent: -9999px !important;
-  overflow: hidden !important;
-  background-color: transparent !important;
-  font-size: 0 !important;
-  flex-shrink: 0;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    background-image: url('https://vnil.me/8SU3Htz1MaDo.png') !important; /* <-- UPDATED LOGO URL */
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: left center !important;
+    width: 220px !important;    /* ADJUST THIS WIDTH AS NEEDED */
+    height: 38px !important;   /* Adjust height if needed */
+    line-height: 38px !important;
+    left: auto !important;
+    top: auto !important;
+    margin: 0 10px 0 5px !important;
+    opacity: 1 !important;
+    border: none !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    background-color: transparent !important;
+    font-size: 0 !important;
+    flex-shrink: 0;
 }
 #logo-text,
 .pve-logo-text {
-  display: none !important;
-  visibility: hidden !important;
+    display: none !important;
+    visibility: hidden !important;
 }
 
 /* === Header Text Replacement (MODIFIED to HIDE original text) === */
 #versioninfo-innerCt
 {
-  display: none !important; /* Hide this element completely */
+    display: none !important; /* Hide this element completely */
 }
 
 
@@ -70,13 +70,13 @@ a.x-plain[href="https://www.proxmox.com"]
 .x-grid,
 .x-tabpanel
 {
-  background-color: rgba(30, 30, 55, 0.30) !important;
-  color: #f0f0ff !important;
-  border: 1px solid rgba(200, 200, 255, 0.12) !important;
-  border-radius: 6px !important;
-  padding: 6px !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
+    background-color: rgba(30, 30, 55, 0.30) !important;
+    color: #f0f0ff !important;
+    border: 1px solid rgba(200, 200, 255, 0.12) !important;
+    border-radius: 6px !important;
+    padding: 6px !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
 }
 
 /* BODY elements of the above */
@@ -86,11 +86,11 @@ a.x-plain[href="https://www.proxmox.com"]
 .x-grid-body,
 .x-form-body
 {
-  background-color: transparent !important;
-  color: inherit !important;
-  border: none !important;
-  border-radius: 0 !important;
-  padding: 4px !important;
+    background-color: transparent !important;
+    color: inherit !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 4px !important;
 }
 
 /* Crucial Reset: Elements that should NOT get full panel styling */
@@ -102,22 +102,22 @@ a.x-plain[href="https://www.proxmox.com"]
 .x-column,
 .x-panel-body-default > .x-container
 {
-  background-color: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  border-radius: 0 !important;
-  color: inherit !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    color: inherit !important;
 }
 
 /* Specific styling for toolbars and top-level form panels */
 .x-toolbar,
 .x-form
 {
-  background-color: rgba(30, 30, 55, 0.25) !important;
-  color: #f0f0ff !important;
-  border: 1px solid rgba(200, 200, 255, 0.1) !important;
-  border-radius: 6px !important;
-  padding: 4px 6px !important;
+    background-color: rgba(30, 30, 55, 0.25) !important;
+    color: #f0f0ff !important;
+    border: 1px solid rgba(200, 200, 255, 0.1) !important;
+    border-radius: 6px !important;
+    padding: 4px 6px !important;
 }
 
 
@@ -126,20 +126,20 @@ a.x-plain[href="https://www.proxmox.com"]
 .x-window-header-default,
 .x-toolbar-default,
 .x-tab-bar-strip-default {
-  background-color: rgba(70, 70, 120, 0.35) !important;
-  color: #fff !important;
-  font-weight: bold;
-  border: none !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-  padding: 5px 8px !important;
-  border-radius: 0 !important;
-  backdrop-filter: blur(5px) !important;
-  -webkit-backdrop-filter: blur(5px) !important;
+    background-color: rgba(70, 70, 120, 0.35) !important;
+    color: #fff !important;
+    font-weight: bold;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    padding: 5px 8px !important;
+    border-radius: 0 !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
 }
 .x-panel-header-default,
 .x-window-header-default {
-  border-top-left-radius: 5px !important;
-  border-top-right-radius: 5px !important;
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
 }
 .x-panel-body-default > .x-toolbar-default {
     border-radius: 3px !important;
@@ -152,46 +152,46 @@ a.x-plain[href="https://www.proxmox.com"]
 
 /* === Tabs === */
 .x-tab-default-top {
-  background-color: rgba(90, 70, 255, 0.30) !important;
-  color: #e0d0ff !important;
-  border-radius: 5px 5px 0 0 !important;
-  padding: 5px 10px !important;
-  margin-right: 2px !important;
-  border: 1px solid transparent !important;
-  border-bottom: none !important;
-  backdrop-filter: blur(3px) !important;
-  -webkit-backdrop-filter: blur(3px) !important;
+    background-color: rgba(90, 70, 255, 0.30) !important;
+    color: #e0d0ff !important;
+    border-radius: 5px 5px 0 0 !important;
+    padding: 5px 10px !important;
+    margin-right: 2px !important;
+    border: 1px solid transparent !important;
+    border-bottom: none !important;
+    backdrop-filter: blur(3px) !important;
+    -webkit-backdrop-filter: blur(3px) !important;
 }
 
 .x-tab-default-top-active {
-  background-color: rgba(180, 160, 255, 0.45) !important;
-  color: #fff !important;
-  font-weight: bold;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(180, 160, 255, 0.45) !important;
+    color: #fff !important;
+    font-weight: bold;
+    border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* === Tree View / Sidebar === */
 .x-tree-panel {
-  background-color: transparent !important;
-  border: none !important;
-  padding: 3px !important;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 3px !important;
 }
 
 .x-tree-node-text {
-  color: #e0e0ff !important;
-  padding: 3px 6px !important;
-  border-radius: 4px !important;
-  display: inline-block !important;
-  margin: 1px 0 !important;
+    color: #e0e0ff !important;
+    padding: 3px 6px !important;
+    border-radius: 4px !important;
+    display: inline-block !important;
+    margin: 1px 0 !important;
 }
 
 .x-tree-view .x-grid-item-selected {
-  background-color: rgba(160, 130, 255, 0.40) !important;
-  border-radius: 4px !important;
+    background-color: rgba(160, 130, 255, 0.40) !important;
+    border-radius: 4px !important;
 }
 .x-tree-view .x-grid-item-selected .x-tree-node-text {
-  color: #ffffff !important;
-  background-color: transparent !important;
+    color: #ffffff !important;
+    background-color: transparent !important;
 }
 
 
@@ -209,11 +209,11 @@ a.x-plain[href="https://www.proxmox.com"]
 
 .x-grid-item,
 .x-grid-cell {
-  background-color: rgba(0, 0, 0, 0.15) !important;
-  color: #e0e0ff !important;
-  border: none !important;
-  padding-top: 4px !important;
-  padding-bottom: 4px !important;
+    background-color: rgba(0, 0, 0, 0.15) !important;
+    color: #e0e0ff !important;
+    border: none !important;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
 }
 .x-grid-item {
     border-bottom: 1px solid rgba(200, 200, 255, 0.08) !important;
@@ -222,47 +222,47 @@ a.x-plain[href="https://www.proxmox.com"]
 /* === Grid Row Selection & Hover === */
 .x-grid-item-selected .x-grid-cell,
 .x-grid-item-over .x-grid-cell {
-  background-color: rgba(130, 110, 255, 0.35) !important;
-  color: white !important;
+    background-color: rgba(130, 110, 255, 0.35) !important;
+    color: white !important;
 }
 
 
 /* === Form Elements === */
 .x-form-item-label-default {
-  color: #e8e8ff !important;
-  padding: 4px 5px 4px 0 !important;
+    color: #e8e8ff !important;
+    padding: 4px 5px 4px 0 !important;
 }
 
 .x-form-text,
 input[type="text"], input[type="password"], input[type="email"], input[type="number"],
 textarea, select, .x-form-field {
-  background-color: rgba(255, 255, 255, 0.06) !important;
-  color: #fff !important;
-  border: 1px solid rgba(200, 200, 255, 0.25) !important;
-  border-radius: 5px !important;
-  padding: 5px 8px !important;
-  box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0.06) !important;
+    color: #fff !important;
+    border: 1px solid rgba(200, 200, 255, 0.25) !important;
+    border-radius: 5px !important;
+    padding: 5px 8px !important;
+    box-shadow: none !important;
 }
 
 /* === Buttons === */
 .x-btn-default-small,
 .x-btn-default-toolbar-small,
 .x-btn-default-medium {
-  background-image: none !important;
-  background-color: rgba(160, 140, 255, 0.45) !important;
-  color: #fff !important;
-  border-radius: 5px !important;
-  padding: 4px 10px !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
-  font-weight: normal !important;
+    background-image: none !important;
+    background-color: rgba(160, 140, 255, 0.45) !important;
+    color: #fff !important;
+    border-radius: 5px !important;
+    padding: 4px 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+    font-weight: normal !important;
 }
 
 .x-btn-default-small:hover,
-.x-btn-  default-toolbar-small:hover,
+.x-btn-default-toolbar-small:hover,
 .x-btn-default-medium:hover {
-  background-color: rgba(190, 170, 255, 0.6) !important;
-  border-color: rgba(255, 255, 255, 0.25) !important;
+    background-color: rgba(190, 170, 255, 0.6) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
 }
 
 .x-toolbar-default .x-box-inner > *,
@@ -275,11 +275,11 @@ textarea, select, .x-form-field {
 /* === Window Modals & Message Boxes === */
 .x-window.x-message-box,
 .x-window[aria-modal="true"] {
-  background-color: rgba(20, 20, 40, 0.65) !important;
-  color: #eee !important;
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    background-color: rgba(20, 20, 40, 0.65) !important;
+    color: #eee !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 .x-window.x-message-box .x-window-body-default,
 .x-window[aria-modal="true"] .x-window-body-default {
@@ -294,12 +294,12 @@ textarea, select, .x-form-field {
 .x-component.x-panel .x-panel-body .x-container .x-box-inner > pre,
 .x-form-display-field,
 pre {
-  background-color: rgba(10, 10, 15, 0.8) !important;
-  color: #e5e5ff !important;
-  font-family: 'Menlo', 'Monaco', 'Consolas', monospace !important;
-  padding: 8px !important;
-  border-radius: 5px !important;
-  border: 1px solid rgba(200, 200, 255, 0.1) !important;
+    background-color: rgba(10, 10, 15, 0.8) !important;
+    color: #e5e5ff !important;
+    font-family: 'Menlo', 'Monaco', 'Consolas', monospace !important;
+    padding: 8px !important;
+    border-radius: 5px !important;
+    border: 1px solid rgba(200, 200, 255, 0.1) !important;
 }
 .x-component.x-panel > .x-panel-body-default.x-panel-body-default.x-closable.x-panel-body-closable.x-panel-body-default-closable {
     background-color: rgba(10, 10, 15, 0.8) !important;
@@ -308,14 +308,14 @@ pre {
 
 /* === Toast Notifications (PVE specific) === */
 .pve-toast {
-  background-color: rgba(160, 130, 255, 0.80) !important;
-  color: white !important;
-  border-radius: 6px !important;
-  padding: 10px 15px !important;
-  backdrop-filter: blur(6px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  border: 1px solid rgba(255,255,255,0.15) !important;
+    background-color: rgba(160, 130, 255, 0.80) !important;
+    color: white !important;
+    border-radius: 6px !important;
+    padding: 10px 15px !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.15) !important;
 }
 
 /* === Scrollbars (WebKit based browsers) === */
@@ -324,3 +324,197 @@ pre {
 ::-webkit-scrollbar-thumb { background-color: rgba(200, 180, 255, 0.45); border-radius: 9px; border: 2px solid transparent; background-clip: content-box; }
 ::-webkit-scrollbar-thumb:hover { background-color: rgba(200, 180, 255, 0.6); }
 ::-webkit-scrollbar-corner { background: rgba(0,0,0,0.25); }
+
+/* Fix: Ugly borders on form inputs that messes up with the default form input */
+.x-form-trigger-wrap-default {
+    border: none !important;
+}
+
+.x-form-trigger-wrap-default.x-form-trigger-wrap-focus > div > input {
+    border-color: rgba(180, 160, 255, 0.45) !important;
+}
+
+.x-form-text {
+    transition: border-color 0.3s ease !important;
+}
+
+/* Fix: table headers background colors */
+.x-grid-item, .x-column-header-default, .x-grid-cell-row-numberer {
+    background-color: rgba(30, 30, 55, 0.25) !important;
+}
+
+/* Fix: table headers border color */
+.x-grid-header-ct {
+    border: none !important;
+}
+
+.x-column-header {
+    border-color: rgba(200, 200, 255, 0.15) !important;
+}
+
+/* Fix: table headers hover color */
+.x-column-header-over, .x-column-header-open, .x-column-header-last .x-column-header-over .x-column-header-trigger {
+    background-color: rgba(180, 160, 255, 0.45) !important;
+}
+
+/* Fix: dropdown button background color */
+.x-form-trigger-default {
+    background-color: rgba(160, 140, 255, 0.45) !important;
+    color: #fff !important;
+    border: 1px solid rgba(200, 200, 255, 0.25) !important;
+    border-radius: 5px !important;
+    transition: background-color 0.3s ease, border-color 0.3s ease !important;
+}
+
+.x-form-trigger-default:hover {
+    background-color: rgba(190, 170, 255, 0.6) !important;
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Fix: dropdown background color */
+.x-boundlist {
+    background-color: rgba(30, 30, 55, 0.25) !important;
+    color: #e0e0ff !important;
+    border: 1px solid rgba(200, 200, 255, 0.15) !important;
+    border-radius: 5px !important;
+}
+
+.x-boundlist-selected {
+    background-color: rgba(130, 110, 255, 0.35) !important;
+    color: #ffffff !important;
+}
+
+.x-boundlist-item {
+    background-color: rgba(30, 30, 55, .25) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.x-boundlist-item:hover {
+    background-color: rgba(160, 140, 255, 0.45) !important;
+    color: #fff !important;
+}
+
+/* Fix: pve nav background color */
+.x-treelist-pve-nav {
+    background-color: rgba(30, 30, 55, 0.25) !important;
+}
+
+.x-treelist-item {
+    background-color: rgba(30, 30, 55, 0.15) !important;
+}
+
+.x-treelist-row-over {
+    background-color: rgba(130, 110, 255, 0.35) !important;
+    color: #ffffff !important;
+}
+
+/* Fix: empty grid background color */
+.x-grid-empty {
+    background-color: rgba(30, 30, 55, 0.25) !important;
+    color: #e0e0ff !important;
+    padding: 20px !important;
+    text-align: center !important;
+    font-style: italic !important;
+}
+
+/* Fix: splitter background color */
+.x-splitter {
+    background-color: rgba(30, 30, 55, 0.25) !important;
+    border: none !important;
+    box-shadow: none !important;
+    cursor: ew-resize !important;
+}
+
+/* Fix: menu background color */
+.x-menu-body-default {
+    background-color: rgba(30, 30, 55, 0.25) !important;
+    color: #e0e0ff !important;
+    border: 1px solid rgba(200, 200, 255, 0.15) !important;
+    border-radius: 5px !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.x-menu-item-default.x-menu-item-focus-focus, .x-menu-item-default.x-menu-item-active {
+    background-color: rgba(130, 110, 255, 0.35) !important;
+    color: #ffffff !important;
+}
+
+.x-menu-default {
+    border: none !important;
+}
+
+.x-menu-item-default.x-menu-item-separator {
+    border: none !important;
+    background-color: rgba(200, 200, 255, 0.15) !important;
+}
+
+.x-menu-icon-separator-default {
+    background-color: rgba(200, 200, 255, 0.15) !important;
+    border: none !important;
+}
+
+/* Fix: button colors */
+.proxmox-inline-button .x-btn-inner, .proxmox-inline-button .x-btn-icon-el {
+    color: #fff !important;
+}
+
+/* Fix: progress bar background color */
+.x-progress-default {
+    background-color: rgba(30, 30, 55, 0.25) !important;
+    border: 1px solid rgba(200, 200, 255, 0.15) !important;
+    border-radius: 5px !important;
+}
+
+/* Fix: message background color */
+.x-mask-msg {
+    background-color: rgba(20, 20, 40, 0.75) !important;
+    color: #e5e5ff !important;
+    border-color: rgba(200, 200, 255, 0.15) !important;
+}
+
+.x-mask {
+    background-color: rgba(30, 30, 55, 0.5) !important;
+}
+
+/* Fix: legends */
+.x-legend {
+    background-color: transparent !important;
+}
+
+.x-legend-container {
+    background-color: transparent !important;
+    color: #e0e0ff !important;
+    border: none !important;
+}
+
+.x-legend-horizontal .x-legend-item {
+    background-color: rgba(30, 30, 55, 0.25) !important;
+    color: #e0e0ff !important;
+    border: 1px solid rgba(200, 200, 255, 0.15) !important;
+    border-radius: 5px !important;
+}
+
+.x-legend-horizontal .x-legend-item + .x-legend-item {
+    margin-left: 5px !important;
+}
+
+/* Fix: tab bar background color */
+.x-tab-bar-default {
+    background-color: rgba(70, 70, 120, 0.25) !important;
+}
+
+/* Fix: install mask */
+.install-mask {
+    background-color: rgba(20, 20, 40, 0.75) !important;
+}
+
+/* Fix: HR elements */
+hr {
+    border-color: rgba(200, 200, 255, 0.15) !important;
+}
+
+/* Fix: x-groups */
+.x-grid-group-hd {
+    background-color: rgba(70, 70, 120, 0.25) !important;
+    border-color: rgba(200, 200, 255, 0.15) !important;
+}
