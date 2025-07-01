@@ -56,33 +56,21 @@ fi
 
 read -p "❌ Do you want to disable the 'No Valid Subscription' popup now? [y/N]: " disable_nag
 if [[ "$disable_nag" =~ ^[Yy]$ ]]; then
-  echo "🧠 Searching for the correct file to patch..."
+  echo "🧠 Patching proxmoxlib.js (widget toolkit)..."
 
-  NAG_PATCHED=false
-  FILES_TO_CHECK=(
-    "/usr/share/pve-manager/ext6/pve-ui.js"
-    "/usr/share/pve-manager/js/pvemanagerlib.js"
-    "/usr/share/pve-manager/index.html.tpl"
-  )
+  JS_PATH="/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js"
 
-  for FILE in "${FILES_TO_CHECK[@]}"; do
-    if [[ -f "$FILE" && "$NAG_PATCHED" = false ]]; then
-      echo "🔧 Checking $FILE..."
-      cp -n "$FILE" "$FILE.bak"
+  if [[ -f "$JS_PATH" ]]; then
+    cp -n "$JS_PATH" "$JS_PATH.bak"
 
-      # Safely disable the nag popup
-      if grep -q "No valid subscription" "$FILE"; then
-        sed -i 's/.*No valid subscription.*/\/\/ No valid subscription popup removed by anime theme installer/' "$FILE"
-        echo "✅ Patched $FILE"
-        NAG_PATCHED=true
-      else
-        echo "⚠️ No nag popup found in $FILE (already patched?)"
-      fi
-    fi
-  done
+    # Remove the nag logic
+    sed -i.bak '/.*data\.status.*{/{s/\!//;s/active/NoMoreNagging/}' "$JS_PATH"
 
-  if [[ "$NAG_PATCHED" = false ]]; then
-    echo "❌ Could not find any known nag popup to patch. Your system may already be clean."
+    echo "✅ Patched $JS_PATH — restarting services..."
+    systemctl restart pveproxy
+    echo "🧼 Please clear your browser cache to see the effect."
+  else
+    echo "❌ proxmoxlib.js not found — subscription nag patch skipped."
   fi
 else
   echo "⏩ Skipping nag popup patch."
