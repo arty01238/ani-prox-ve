@@ -68,27 +68,62 @@ else
   echo "⏩ Skipping package upgrade"
 fi
 
-# ---- Optional Nag Disable ----
 read -p "❌ Do you want to disable the 'No Valid Subscription' popup now? [y/N]: " disable_nag
 if [[ "$disable_nag" =~ ^[Yy]$ ]]; then
-  JS_PATH="/usr/share/pve-manager/ext6/pve-ui.js"
+  echo "🧠 Searching for the correct file to patch..."
 
-  if [[ -f "$JS_PATH" ]]; then
-    echo "🧠 Disabling nag popup in $JS_PATH..."
-    cp -n "$JS_PATH" "$JS_PATH.bak"
+  NAG_PATCHED=false
 
-    if grep -q "You do not have a valid subscription" "$JS_PATH"; then
-      sed -i '/You do not have a valid subscription/,+10d' "$JS_PATH"
-      echo "✅ Nag screen logic removed."
+  # --- Try pve-ui.js (standard x86_64 build) ---
+  if [[ -f /usr/share/pve-manager/ext6/pve-ui.js ]]; then
+    FILE="/usr/share/pve-manager/ext6/pve-ui.js"
+    echo "🔧 Found pve-ui.js"
+    cp -n "$FILE" "$FILE.bak"
+    if grep -q "No valid subscription" "$FILE"; then
+      sed -i '/No valid subscription/,+10d' "$FILE"
+      echo "✅ Patched $FILE"
+      NAG_PATCHED=true
     else
-      echo "⚠️ Nag popup logic not found — already patched or different version."
+      echo "⚠️ No nag popup found in $FILE (already patched?)"
     fi
-  else
-    echo "❌ Could not find pve-ui.js at $JS_PATH"
+  fi
+
+  # --- Try pvemanagerlib.js (seen on 8.4 ARM) ---
+  if [[ -f /usr/share/pve-manager/js/pvemanagerlib.js && "$NAG_PATCHED" = false ]]; then
+    FILE="/usr/share/pve-manager/js/pvemanagerlib.js"
+    echo "🔧 Found pvemanagerlib.js"
+    cp -n "$FILE" "$FILE.bak"
+    if grep -q "No valid subscription" "$FILE"; then
+      sed -i '/No valid subscription/,+10d' "$FILE"
+      echo "✅ Patched $FILE"
+      NAG_PATCHED=true
+    else
+      echo "⚠️ No nag popup found in $FILE (already patched?)"
+    fi
+  fi
+
+  # --- Try index.html.tpl (fallback / ultra-minimal PiMox) ---
+  if [[ -f /usr/share/pve-manager/index.html.tpl && "$NAG_PATCHED" = false ]]; then
+    FILE="/usr/share/pve-manager/index.html.tpl"
+    echo "🔧 Checking index.html.tpl..."
+    cp -n "$FILE" "$FILE.bak"
+    if grep -q "No valid subscription" "$FILE"; then
+      sed -i '/No valid subscription/,+5d' "$FILE"
+      echo "✅ Patched $FILE"
+      NAG_PATCHED=true
+    else
+      echo "⚠️ No nag popup found in $FILE (already patched?)"
+    fi
+  fi
+
+  if [[ "$NAG_PATCHED" = false ]]; then
+    echo "❌ Could not find any known nag popup to patch. Your system may already be clean."
   fi
 else
   echo "⏩ Skipping nag popup patch."
 fi
+
+echo ""
 
 # ---- Theme Install Begins ----
 THEME_REPO="https://github.com/arty01238/ani-prox-ve.git"
