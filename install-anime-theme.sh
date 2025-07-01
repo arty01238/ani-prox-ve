@@ -71,30 +71,24 @@ fi
 # ---- Optional Nag Disable ----
 read -p "❌ Do you want to disable the 'No Valid Subscription' popup now? [y/N]: " disable_nag
 if [[ "$disable_nag" =~ ^[Yy]$ ]]; then
-  JS_PATH=""
-  if [[ -f /usr/share/pve-manager/js/pvemanagerlib.js ]]; then
-    JS_PATH="/usr/share/pve-manager/js/pvemanagerlib.js"
-  elif [[ -f /usr/share/pve-manager/ext6/pvemanagerlib.js ]]; then
-    JS_PATH="/usr/share/pve-manager/ext6/pvemanagerlib.js"
-  fi
+  JS_PATH="/usr/share/pve-manager/ext6/pve-ui.js"
 
-  if [[ -n "$JS_PATH" ]]; then
-    echo "🧠 Disabling nag screen in $JS_PATH..."
+  if [[ -f "$JS_PATH" ]]; then
+    echo "🧠 Disabling nag popup in $JS_PATH..."
     cp -n "$JS_PATH" "$JS_PATH.bak"
-    if grep -q 'data.status !== "Active"' "$JS_PATH"; then
-      sed -i.bak '/data.status !== "Active"/ s/^/\/\/ /' "$JS_PATH"
-      echo "✅ Nag screen disabled."
+
+    if grep -q "You do not have a valid subscription" "$JS_PATH"; then
+      sed -i '/You do not have a valid subscription/,+10d' "$JS_PATH"
+      echo "✅ Nag screen logic removed."
     else
-      echo "⚠️ Nag screen patch already applied or not found."
+      echo "⚠️ Nag popup logic not found — already patched or different version."
     fi
   else
-    echo "❌ Could not find pvemanagerlib.js to patch."
+    echo "❌ Could not find pve-ui.js at $JS_PATH"
   fi
 else
   echo "⏩ Skipping nag popup patch."
 fi
-
-echo ""
 
 # ---- Theme Install Begins ----
 THEME_REPO="https://github.com/arty01238/ani-prox-ve.git"
