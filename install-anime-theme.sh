@@ -32,6 +32,37 @@ if [[ "$disable_enterprise" =~ ^[Yy]$ ]]; then
     echo "✅ Added Debian security repo"
   fi
 
+  read -p "🐙 Do you want to fix Ceph to use the community repo instead of the enterprise one? [y/N]: " fix_ceph
+if [[ "$fix_ceph" =~ ^[Yy]$ ]]; then
+  echo "🧠 Checking for Ceph repository..."
+
+  if [[ -f /etc/apt/sources.list.d/ceph.list ]]; then
+    echo "📦 Processing /etc/apt/sources.list.d/ceph.list..."
+
+    if grep -q 'enterprise.proxmox.com' /etc/apt/sources.list.d/ceph.list; then
+      echo "📛 Disabling Ceph enterprise repo..."
+      sed -i 's|^deb .*enterprise.proxmox.com.*|# &|' /etc/apt/sources.list.d/ceph.list
+      echo "✅ Ceph enterprise repo commented out."
+    else
+      echo "ℹ️ No Ceph enterprise repo line found to comment."
+    fi
+
+    if ! grep -q 'download.proxmox.com.*ceph' /etc/apt/sources.list.d/ceph.list; then
+      echo "➕ Adding Ceph no-subscription repo..."
+      echo "deb http://download.proxmox.com/debian/ceph-quincy bookworm no-subscription" >> /etc/apt/sources.list.d/ceph.list
+      echo "✅ Ceph community repo added."
+    else
+      echo "ℹ️ Ceph community repo already present."
+    fi
+  else
+    echo "❌ Ceph is not installed or no ceph.list file found — skipping."
+  fi
+else
+  echo "⏩ Skipping Ceph repo fix."
+fi
+
+echo ""
+
   echo "🔄 Updating package lists..."
   apt update -y
 
