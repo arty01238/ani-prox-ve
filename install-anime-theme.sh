@@ -2,7 +2,7 @@
 
 set -e
 
-echo "🌸 Proxmox Anime Theme Installer (ARM + x86_64 compatible)"
+echo "🌸 Proxmox Anime Theme Installer (ARM + x86_64 compatible) with Optional No Subscription Script!"
 
 # ---- Safety Check ----
 if [[ $EUID -ne 0 ]]; then
