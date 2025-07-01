@@ -6,6 +6,13 @@ This guide explains how to install the "ChibiDreams VE" custom theme on your Pro
 **Theme Version:** 1.0 (Based on PVE 8.x CSS structure)
 **Theme CSS File:** `chibidreams-theme.css` (You need to create this file with the CSS content provided separately)
 
+**Fast Install:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/arty01238/ani-prox-ve/main/install-anime-theme.sh -o install-anime-theme.sh
+chmod +x install-anime-theme.sh
+./install-anime-theme.sh
+```
+
 ## Table of Contents
 
 1.  [Important Considerations](#important-considerations)
