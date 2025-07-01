@@ -13,6 +13,13 @@ chmod +x install-anime-theme.sh
 ./install-anime-theme.sh
 ```
 
+**Fast Uninstall:**
+```bash
+curl -fsSL https://raw.githubusercontent.com/arty01238/ani-prox-ve/main/install-anime-theme.sh -o uninstall-anime-theme.sh
+chmod +x uninstall-anime-theme.sh
+./uninstall-anime-theme.sh
+```
+
 ## Table of Contents
 
 1.  [Important Considerations](#important-considerations)
