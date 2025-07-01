@@ -1,4 +1,5 @@
 # Proxmox VE Custom Theme: ChibiDreams VE
+![image](https://github.com/user-attachments/assets/cc971b45-0e9e-41aa-bfb3-c267865ba063)
 
 This guide explains how to install the "ChibiDreams VE" custom theme on your Proxmox VE server. This method applies the theme server-side, meaning it will be visible to anyone accessing this Proxmox VE instance via a web browser.
 
@@ -161,3 +162,13 @@ To remove the custom theme:
 3.  **Clear browser cache thoroughly.**
 
 This will revert Proxmox VE to its default appearance.
+
+## More screenshots
+
+![image](https://github.com/user-attachments/assets/896ca96d-d8dd-4948-9cc3-7be2696a272d)
+![image](https://github.com/user-attachments/assets/b8bd578d-05d2-4d1d-aecf-907e4f1623c6)
+![image](https://github.com/user-attachments/assets/307d6503-4eeb-4593-b68b-bdc616e2adf6)
+![image](https://github.com/user-attachments/assets/21fafe39-ec85-4fe5-81be-8dc98ca28ef2)
+![image](https://github.com/user-attachments/assets/384f7d21-8837-474c-9c96-08dddbcbe786)
+
+

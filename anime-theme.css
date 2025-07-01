@@ -408,6 +408,11 @@ pre {
     color: #ffffff !important;
 }
 
+.x-treelist-item-selected>.x-treelist-row {
+    background-color: rgba(160, 140, 255, 0.45) !important;
+    color: #ffffff !important;
+}
+
 /* Fix: empty grid background color */
 .x-grid-empty {
     background-color: rgba(30, 30, 55, 0.25) !important;
@@ -517,4 +522,9 @@ hr {
 .x-grid-group-hd {
     background-color: rgba(70, 70, 120, 0.25) !important;
     border-color: rgba(200, 200, 255, 0.15) !important;
+}
+
+/* Fix: title color */
+.x-panel-header-title-default {
+    color: #e0e0ff !important;
 }
