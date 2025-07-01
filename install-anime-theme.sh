@@ -10,6 +10,71 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
+# ---- Proxmox Prep Options (No-Subscription Setup + Disable Nag) ----
+
+read -p "🛠️  Do you want to disable the enterprise repo and enable the community no-subscription repo? [y/N]: " disable_enterprise
+
+if [[ "$disable_enterprise" =~ ^[Yy]$ ]]; then
+  echo "📦 Disabling Proxmox enterprise repo..."
+  if [[ -f /etc/apt/sources.list.d/pve-enterprise.list ]]; then
+    sed -i 's/^/#/' /etc/apt/sources.list.d/pve-enterprise.list
+    echo "✅ Commented out enterprise repo"
+  else
+    echo "ℹ️ Enterprise repo file not found, skipping"
+  fi
+
+  echo "📦 Enabling no-subscription repo..."
+  echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-no-subscription.list
+
+  echo "📦 Ensuring Debian security repo is present..."
+  if ! grep -q 'security.debian.org' /etc/apt/sources.list; then
+    echo "deb http://security.debian.org/debian-security bookworm-security main contrib" >> /etc/apt/sources.list
+    echo "✅ Added Debian security repo"
+  fi
+
+  echo "🔄 Updating package lists..."
+  apt update -y
+
+  read -p "🔁 Do you want to upgrade all packages now? [y/N]: " do_upgrade
+  if [[ "$do_upgrade" =~ ^[Yy]$ ]]; then
+    apt dist-upgrade -y
+  else
+    echo "⏩ Skipping package upgrade"
+  fi
+
+  read -p "❌ Do you want to disable the 'No Valid Subscription' popup now? [y/N]: " disable_nag
+  if [[ "$disable_nag" =~ ^[Yy]$ ]]; then
+    JS_PATH=""
+    if [[ -f /usr/share/pve-manager/js/pvemanagerlib.js ]]; then
+      JS_PATH="/usr/share/pve-manager/js/pvemanagerlib.js"
+    elif [[ -f /usr/share/pve-manager/ext6/pvemanagerlib.js ]]; then
+      JS_PATH="/usr/share/pve-manager/ext6/pvemanagerlib.js"
+    fi
+
+    if [[ -n "$JS_PATH" ]]; then
+      echo "🧠 Disabling nag screen in $JS_PATH..."
+      cp -n "$JS_PATH" "$JS_PATH.bak"
+
+      if grep -q 'data.status !== "Active"' "$JS_PATH"; then
+        sed -i.bak '/data.status !== "Active"/ s/^/\/\/ /' "$JS_PATH"
+        echo "✅ Nag screen disabled."
+      else
+        echo "⚠️ Nag screen patch already applied or not found."
+      fi
+    else
+      echo "❌ Could not find pvemanagerlib.js to patch."
+    fi
+  else
+    echo "⏩ Skipping nag popup patch."
+  fi
+
+  echo "✅ Proxmox is now set to no-subscription mode with optional patches."
+else
+  echo "⏩ Skipping no-subscription setup and nag patch."
+fi
+
+echo ""
+
 # ---- Config ----
 THEME_REPO="https://github.com/arty01238/ani-prox-ve.git"
 TMP_DIR="/tmp/ani-prox-ve"
@@ -19,7 +84,7 @@ PVE_CSS_ARM="/usr/share/pve-manager/css/ext6-pve.css"
 PVE_TPL="/usr/share/pve-manager/index.html.tpl"
 PVE_UI_JS="/usr/share/pve-manager/ext6/pve-ui.js"
 
-NEEDED_CMDS=("git" "systemctl" "tee" "grep" "cat" "sed")
+NEEDED_CMDS=("git" "systemctl" "tee" "grep" "cat" "sed" "sudo")
 
 # ---- Install missing dependencies ----
 echo "🔍 Checking required packages..."
